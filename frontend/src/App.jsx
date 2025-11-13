@@ -10,6 +10,7 @@ import ProfileDetails from "./pages/ProfileDetails";
 import PrivateRoute from "./routes/PrivateRoute";
 import CreatePartner from "./pages/CreatePartner";
 import FindPartners from "./pages/FindPartners";
+import MyConnections from "./pages/MyConnections";
 
 function App() {
   return (
@@ -33,6 +34,11 @@ function App() {
             <CreatePartner />
           </PrivateRoute>
         } />
+          <Route path="myconnections" element={
+            <PrivateRoute>
+              <MyConnections />
+            </PrivateRoute>
+          } />
         </Route>
         {/* Auth Routes */}
         <Route path="/login" element={<Login />} />

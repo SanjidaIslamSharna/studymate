@@ -3,7 +3,7 @@ import {
   getMyConnections,
   deleteConnection,
   updateConnection
-} from "../controllers/connectionController.js";
+} from "../controllers/partnerProfileController.js";
 import firebaseAuth from "../middleware/firebaseAuth.js";
 
 const router = express.Router();

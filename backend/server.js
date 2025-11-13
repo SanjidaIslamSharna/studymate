@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import connectDB from "./config/db.js";
 import partnerProfileRoutes from "./routes/partnerProfileRoutes.js";
+import connectionRoutes from "./routes/connectionRoutes.js";
 
 dotenv.config();
 
