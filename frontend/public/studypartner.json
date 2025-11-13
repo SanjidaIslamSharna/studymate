@@ -1,0 +1,67 @@
+[
+  {
+    "id": "2",
+    "name": "Rafiul Islam",
+    "profileimage": "https://i.ibb.co/7tJZk3C/profile1.jpg",
+    "subject": "Physics",
+    "studyMode": "In-person",
+    "availabilityTime": "Morning 9–11 AM",
+    "location": "Chittagong, Bangladesh",
+    "experienceLevel": "Advanced",
+    "rating": 4.8,
+    "patnerCount": 3,
+    "email": "rafiul.islam@example.com"
+  },
+  {
+    "id": "3",
+    "name": "Sadia Hossain",
+    "profileimage": "https://i.ibb.co/TkkYpWc/profile2.jpg",
+    "subject": "English Literature",
+    "studyMode": "Online",
+    "availabilityTime": "Afternoon 2–5 PM",
+    "location": "Khulna, Bangladesh",
+    "experienceLevel": "Beginner",
+    "rating": 3.5,
+    "patnerCount": 1,
+    "email": "sadia.hossain@example.com"
+  },
+  {
+    "id": "4",
+    "name": "Tanvir Ahmed",
+    "profileimage": "https://i.ibb.co/hYfQHtL/profile3.jpg",
+    "subject": "Computer Science",
+    "studyMode": "Hybrid",
+    "availabilityTime": "Night 8–10 PM",
+    "location": "Sylhet, Bangladesh",
+    "experienceLevel": "Advanced",
+    "rating": 5.0,
+    "patnerCount": 4,
+    "email": "tanvir.ahmed@example.com"
+  },
+  {
+    "id": "5",
+    "name": "Nafisa Karim",
+    "profileimage": "https://i.ibb.co/mR1HTxP/profile4.jpg",
+    "subject": "Biology",
+    "studyMode": "In-person",
+    "availabilityTime": "Evening 7–9 PM",
+    "location": "Rajshahi, Bangladesh",
+    "experienceLevel": "Intermediate",
+    "rating": 4.2,
+    "patnerCount": 2,
+    "email": "nafisa.karim@example.com"
+  },
+  {
+    "id": "6",
+    "name": "Farhan Chowdhury",
+    "profileimage": "https://i.ibb.co/F6R6Hfj/profile5.jpg",
+    "subject": "Chemistry",
+    "studyMode": "Online",
+    "availabilityTime": "Morning 10–12 AM",
+    "location": "Barisal, Bangladesh",
+    "experienceLevel": "Intermediate",
+    "rating": 3.9,
+    "patnerCount": 1,
+    "email": "farhan.chowdhury@example.com"
+  }
+]

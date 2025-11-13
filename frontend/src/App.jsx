@@ -6,6 +6,9 @@ import ScrollToTop from "./components/ScrollToTop";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
+import ProfileDetails from "./pages/ProfileDetails";
+import PrivateRoute from "./routes/PrivateRoute";
+import CreatePartner from "./pages/CreatePartner";
 
 function App() {
   return (
@@ -15,6 +18,19 @@ function App() {
         {/* Layout Route */}
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route
+          path="partner/:id"
+          element={
+            <PrivateRoute>
+              <ProfileDetails />
+            </PrivateRoute>
+          }
+        />
+        <Route path="create-partner-profile" element={
+          <PrivateRoute>
+            <CreatePartner />
+          </PrivateRoute>
+        } />
         </Route>
         {/* Auth Routes */}
         <Route path="/login" element={<Login />} />
