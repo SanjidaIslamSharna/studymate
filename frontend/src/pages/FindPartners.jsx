@@ -56,20 +56,8 @@ const FindPartners = () => {
           transition={{ duration: 0.5 }}
           className="bg-white p-5 rounded-2xl shadow-lg border border-gray-100 flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10"
         >
-          {/* Search Input */}
-          <div className="relative w-full md:w-1/2">
-            <Search className="absolute left-3 top-3.5 text-gray-400" size={20} />
-            <input
-              type="text"
-              placeholder="Search by name, subject, or location..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200"
-            />
-          </div>
-
-          {/* Sort & Filter Controls */}
-          <div className="flex flex-col md:flex-row items-center gap-3 w-full md:w-auto">
+          {/* Sort & Filter Controls (Left) */}
+          <div className="flex flex-col md:flex-row items-center gap-3 w-full md:w-auto order-1 md:order-1">
             <div className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-xl">
               <SlidersHorizontal className="text-gray-500" size={18} />
               <span className="text-sm text-gray-600">Sort by:</span>
@@ -100,6 +88,21 @@ const FindPartners = () => {
             >
               Refresh
             </button>
+          </div>
+
+          {/* Search Input (Right) */}
+          <div className="relative w-full md:w-1/2 order-2 md:order-2">
+            <Search
+              className="absolute left-3 top-3.5 text-gray-400"
+              size={20}
+            />
+            <input
+              type="text"
+              placeholder="Search by name, subject, or location..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200"
+            />
           </div>
         </motion.div>
 

@@ -10,6 +10,7 @@ const partnerProfileSchema = new mongoose.Schema({
   experienceLevel: { type: String, enum: ["Beginner", "Intermediate", "Expert"], required: true },
   rating: { type: Number, default: 0 },
   partnerCount: { type: Number, default: 0 },
+  connections: { type: [String], default: [] },
   email: { type: String, required: true },
   userUid: { type: String, required: true },
   createdAt: { type: Date, default: Date.now }

@@ -19,6 +19,7 @@ app.get("/", (req, res) => {
 
 // Routes
 app.use("/api/partner-profiles", partnerProfileRoutes);
+app.use("/api/connections", connectionRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));

@@ -120,3 +120,85 @@ export const getPartnerProfiles = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
+// Send Partner Request
+export const sendPartnerRequest = async (req, res) => {
+  try {
+    const { id } = req.params; // PartnerProfile ID
+    const currentUserUid = req.user.uid;
+
+    const partner = await PartnerProfile.findById(id);
+    if (!partner) return res.status(404).json({ message: "Partner not found" });
+
+    // Already connected?
+    if (partner.connections.includes(currentUserUid)) {
+      return res.status(400).json({ message: "You already sent a request" });
+    }
+
+    // Add to connections & increment partnerCount
+    partner.connections.push(currentUserUid);
+    partner.partnerCount = partner.connections.length;
+
+    await partner.save();
+
+    res.status(200).json({ message: "Partner request sent", partner });
+  } catch (err) {
+    console.error("Error sending request:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+export const getMyConnections = async (req, res) => {
+  try {
+    const userUid = req.user.uid; // Logged-in user UID
+
+    // Find all profiles where connections include this user
+    const connections = await PartnerProfile.find({
+      connections: userUid
+    });
+
+    res.status(200).json({ connections });
+  } catch (err) {
+    console.error("Error fetching connections:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+export const deleteConnection = async (req, res) => {
+  try {
+    const { partnerId } = req.params;
+    const userUid = req.user.uid;
+
+    const partner = await PartnerProfile.findById(partnerId);
+    if (!partner) return res.status(404).json({ message: "Partner not found" });
+
+    partner.connections = partner.connections.filter(uid => uid !== userUid);
+    partner.partnerCount = partner.connections.length;
+
+    await partner.save();
+    res.status(200).json({ message: "Connection deleted successfully" });
+  } catch (err) {
+    console.error("Error deleting connection:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+export const updateConnection = async (req, res) => {
+  try {
+    const { partnerId } = req.params;
+    const updateData = req.body; // e.g., { studyMode, availabilityTime, location, experienceLevel }
+
+    const updatedPartner = await PartnerProfile.findByIdAndUpdate(
+      partnerId,
+      updateData,
+      { new: true }
+    );
+
+    if (!updatedPartner) return res.status(404).json({ message: "Partner not found" });
+
+    res.status(200).json({ message: "Connection updated", updatedPartner });
+  } catch (err) {
+    console.error("Error updating connection:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
