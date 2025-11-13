@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import ProfileDetails from "./pages/ProfileDetails";
 import PrivateRoute from "./routes/PrivateRoute";
 import CreatePartner from "./pages/CreatePartner";
+import FindPartners from "./pages/FindPartners";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         {/* Layout Route */}
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="find-partners" element={<FindPartners />} />
           <Route
           path="partner/:id"
           element={

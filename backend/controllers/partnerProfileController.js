@@ -54,15 +54,15 @@ export const createPartnerProfile = async (req, res) => {
   }
 };
 
-export const getPartnerProfiles = async (req, res) => {
-  try {
-    const profiles = await PartnerProfile.find();
-    res.status(200).json({ profiles });
-  } catch (err) {
-    console.error("Error fetching profiles:", err);
-    res.status(500).json({ message: "Server error" });
-  }
-};
+// export const getPartnerProfiles = async (req, res) => {
+//   try {
+//     const profiles = await PartnerProfile.find();
+//     res.status(200).json({ profiles });
+//   } catch (err) {
+//     console.error("Error fetching profiles:", err);
+//     res.status(500).json({ message: "Server error" });
+//   }
+// };
 
 export const getPartnerProfile = async (req, res) => {
   try {
@@ -84,6 +84,39 @@ export const getTopThreePartnerProfiles = async (req, res) => {
     res.status(200).json({ topThreeProfiles });
   } catch (err) {
     console.error("Error fetching top three partner profiles:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+export const getPartnerProfiles = async (req, res) => {
+  try {
+    const { search, sort, studyMode } = req.query;
+    let query = {};
+
+    // Search filter
+    if (search) {
+      const regex = new RegExp(search, "i");
+      query.$or = [
+        { name: regex },
+        { subject: regex },
+        { location: regex }
+      ];
+    }
+
+    // Study mode filter
+    if (studyMode) {
+      query.studyMode = studyMode;
+    }
+
+    // Sorting
+    let profilesQuery = PartnerProfile.find(query);
+    if (sort === "rating") profilesQuery = profilesQuery.sort({ rating: -1 });
+
+    const profiles = await profilesQuery.exec();
+    res.status(200).json(profiles);
+
+  } catch (err) {
+    console.error(err);
     res.status(500).json({ message: "Server error" });
   }
 };
