@@ -8,14 +8,16 @@ import connectionRoutes from "./routes/connectionRoutes.js";
 dotenv.config();
 
 const app = express();
-app.use(cors(
-   origin: [
-      "https://studymate-red.vercel.app", // your frontend domain
-      "http://localhost:5173"             // local dev
+app.use(
+    cors({
+    origin: [
+      "https://studymate-red.vercel.app",
+      "http://localhost:5173"
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
-));
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 // Connect to MongoDB
