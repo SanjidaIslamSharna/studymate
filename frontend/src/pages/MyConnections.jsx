@@ -8,11 +8,13 @@ const MyConnections = () => {
   const [connections, setConnections] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const apiUrl = import.meta.env.VITE_API_URL;;
+
   const fetchConnections = async () => {
     try {
       setLoading(true);
       const token = await user.getIdToken();
-      const res = await axios.get("http://localhost:5000/api/connections", {
+      const res = await axios.get(`${apiUrl}/connections`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setConnections(res.data.connections || []);
@@ -32,7 +34,7 @@ const MyConnections = () => {
 
     try {
       const token = await user.getIdToken();
-      await axios.delete(`http://localhost:5000/api/connections/${partnerId}`, {
+      await axios.delete(`${apiUrl}/connections/${partnerId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setConnections(prev => prev.filter(c => c._id !== partnerId));

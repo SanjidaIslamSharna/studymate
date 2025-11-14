@@ -11,10 +11,12 @@ const ProfileDetails = () => {
   const [loading, setLoading] = useState(true);
   const [connected, setConnected] = useState(false); // Already connected?
 
+  const apiUrl = import.meta.env.VITE_API_URL;;
+
   useEffect(() => {
     const fetchPartnerDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/partner-profiles/${id}`);
+        const response = await axios.get(`${apiUrl}/partner-profiles/${id}`);
         setPartner(response.data.profile);
 
         // Check if current user is already connected
@@ -40,7 +42,7 @@ const ProfileDetails = () => {
     try {
       const token = await user.getIdToken(); // Firebase token
       const response = await axios.post(
-        `http://localhost:5000/api/partner-profiles/${id}/send-request`,
+        `${process.env.REACT_APP_API_URL}/partner-profiles/${id}/send-request`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

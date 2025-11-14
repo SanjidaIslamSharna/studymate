@@ -6,6 +6,8 @@ import toast from "react-hot-toast";
 const CreatePartner = () => {
   const auth = getAuth();
   const user = auth.currentUser; // Logged-in user
+  const apiUrl = import.meta.env.VITE_API_URL;
+
 
   // Form state
   const [formData, setFormData] = useState({
@@ -48,7 +50,7 @@ const CreatePartner = () => {
 
       // Send POST request to backend
       const res = await axios.post(
-        "http://localhost:5000/api/partner-profiles/create",
+        `${apiUrl}/partner-profiles/create`,
         newProfile,
         {
           headers: {

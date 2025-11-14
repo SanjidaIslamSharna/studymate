@@ -5,11 +5,12 @@ import ProfileCard from "./cards/ProfileCard";
 const TopStudyPartners = () => {
   const [partners, setPartners] = useState([]);
   const [loading, setLoading] = useState(true);
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchTopPartners = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/partner-profiles/top-three");
+        const response = await axios.get(`${apiUrl}/partner-profiles/top-three`);
         // ✅ Response shape: { topThreeProfiles: [ ... ] }
         setPartners(response.data.topThreeProfiles || []);
       } catch (error) {

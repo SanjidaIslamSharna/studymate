@@ -11,6 +11,8 @@ const FindPartners = () => {
   const [sortOption, setSortOption] = useState("rating");
   const [studyMode, setStudyMode] = useState("");
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const fetchPartners = async () => {
     try {
       setLoading(true);
@@ -20,7 +22,7 @@ const FindPartners = () => {
       if (studyMode) params.studyMode = studyMode;
 
       const response = await axios.get(
-        "http://localhost:5000/api/partner-profiles",
+        `${apiUrl}/partner-profiles`,
         { params }
       );
       setPartners(response.data || []);

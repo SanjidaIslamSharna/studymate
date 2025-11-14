@@ -67,14 +67,14 @@ const Signup = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            className="border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-[#60AEA0] placeholder-white"
+            className="border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-[#E59959] placeholder-white"
           />
           <input
             type="text"
             placeholder="Photo URL"
             value={photo}
             onChange={(e) => setPhoto(e.target.value)}
-            className="border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-[#60AEA0] placeholder-white"
+            className="border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-[#E59959] placeholder-white"
           />
           <input
             type="email"
@@ -82,7 +82,7 @@ const Signup = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-[#60AEA0] placeholder-white"
+            className="border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-[#E59959] placeholder-white"
           />
           <input
             type="password"
@@ -90,11 +90,11 @@ const Signup = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-[#60AEA0] placeholder-white"
+            className="border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-[#E59959] placeholder-white"
           />
           <button
             type="submit"
-            className="bg-[#60AEA0] text-white px-4 py-2 rounded hover:bg-[#378982] transition"
+            className="bg-[#E59959] text-white px-4 py-2 rounded hover:bg-[#c1804b] transition"
           >
             Sign Up
           </button>
